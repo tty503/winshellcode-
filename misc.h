@@ -12,6 +12,6 @@
 #define MISC_H
 
 void getaddr(unsigned long *winexec_addr, unsigned long *exitprocess_addr);
-void assign_addr(unsigned char shellcode[]);
+void assign_addr(unsigned char shellcode[], unsigned long *winexec_addr, unsigned long *exitprocess_addr);
 
 #endif

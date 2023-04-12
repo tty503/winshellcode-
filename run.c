@@ -45,7 +45,7 @@ int main(void)
 
 
 	/* Asignamos las direcciones */
-	assign_addr(shellcode); 
+	assign_addr(shellcode, &winexec_addr, &exitprocess_addr); 
 
 	/* 	Declaramos un puntero a una función, 
 		Es decir, estamos apuntando a la dirección de memoria de esa función y hasta este punto es desconocida.
