@@ -11,12 +11,6 @@
 #ifndef MISC_H
 #define MISC_H
 
-#include <windows.h>
-#include "shellcode.h"
-
-unsigned long winexec_addr;
-unsigned long exitprocess_addr;
-
 void getaddr(unsigned long *winexec_addr, unsigned long *exitprocess_addr);
 void assign_addr(unsigned char shellcode[]);
 

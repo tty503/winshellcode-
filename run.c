@@ -34,9 +34,9 @@
 		después del "secuestro" del registro que apunta a la siguiente instrucción (eip, en las arquitecturas x86)
 		esto por lo general se da en un desbordamiento de buffer o cualquier otra medida de explotación. 
  */
-
-#include "misc.h"
 #include "shellcode.h"
+#include "misc.h"
+
 
 int main(void)
 {

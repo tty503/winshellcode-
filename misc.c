@@ -6,7 +6,10 @@
 		-> Obtener las direcciones de memoria a las funciones WinExec / ExitProcess.
 		-> Sobreescribir la shellcode con las direcciones correspondientes a estás funciones. 
  */
-#include "misc.h"
+
+#include <windows.h>
+//#include "shellcode.h"
+
 void getaddr(unsigned long *winexec_addr, unsigned long *exitprocess_addr)
 /*
 	Recibe como parámetros las direcciones a las variables en las que almacenará los resultados. 

