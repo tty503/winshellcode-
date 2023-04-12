@@ -25,8 +25,8 @@ void getaddr(unsigned long *winexec_addr, unsigned long *exitprocess_addr)
 	/* Almacenamos los valores devueltos en las variables definidas en el encabezado, estás serán
 	 	utilizadas en otra rutina. 
 	 */
-	*exitprocess_addr = GetProcAddress(Kernel32Addr, "ExitProcess"); 
-	*winexec_addr 	 = GetProcAddress(Kernel32Addr, "WinExec"); 
+	*exitprocess_addr = GetProcAddress(kernel32_addr, "ExitProcess"); 
+	*winexec_addr 	  = GetProcAddress(kernel32_addr, "WinExec"); 
 }
 void assign_addr(unsigned char shellcode[])
 /*
