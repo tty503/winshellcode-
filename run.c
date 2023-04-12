@@ -34,6 +34,8 @@
 		después del "secuestro" del registro que apunta a la siguiente instrucción (eip, en las arquitecturas x86)
 		esto por lo general se da en un desbordamiento de buffer o cualquier otra medida de explotación. 
  */
+
+// Para compilar : i686-w64-mingw32-gcc run.c misc.c -o run.exe 
 #include "shellcode.h"
 #include "misc.h"
 
